@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_blog/pages/user/login_page.dart';
+import 'package:get/get.dart';
 class CustomEleavatedButton extends StatelessWidget {
   final String text;
+  final funpageroute;
 
-  const CustomEleavatedButton({@required this.text}) ;
+  //@required 를쓰므로 무조껀받는다
+  const CustomEleavatedButton({@required this.text, @required this.funpageroute}) ;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -16,7 +20,9 @@ class CustomEleavatedButton extends StatelessWidget {
 
       ),
       onPressed: (){
-        print('ElevatedButtonClick시 발동');
+
+        funpageroute();
+
       },
       child: Text('$text'),
     );
