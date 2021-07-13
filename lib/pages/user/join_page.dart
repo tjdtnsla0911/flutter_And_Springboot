@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog/components/custom_elevated_button.dart';
 import 'package:flutter_blog/components/custom_text_form_field.dart';
 import 'package:flutter_blog/pages/user/login_page.dart';
+import 'package:flutter_blog/util/Cvallidator_util.dart';
 import 'package:get/get.dart';
 import 'package:validators/validators.dart';
 
@@ -45,24 +46,12 @@ class JoinPage extends StatelessWidget {
 
             children: [
               //value는 선언한적은없지만 이렇게하면 적은게 바로 쏙들어간다함
-              CustomTextFormFild(hint: "Username",funvalidator: (value){
-                print('username of value : $value');
-              },),//얘는 위에 치게해주는놈
-              CustomTextFormFild(hint: "Password",
-                funvalidator: (value){
-                  print('Password of value : $value');
-                  print('isAlpha = :${!isAlpha(value)}');
+              CustomTextFormFild(hint: "Username",funvalidator: validateusername(),),//얘는 위에 치게해주는놈
 
-                    if(!isAlpha(value)){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
-                      print('왓다');
-                      return "유저네임에 한글이 들어갈 수 없습니다";
-                    }else{
-                      return null;
-                    }
-              }, ),
-              CustomTextFormFild(hint: "Email",funvalidator: (value){
-                print('Email of value : $value');
-              },),
+              CustomTextFormFild(hint: "Password",
+                funvalidator: validatePassword(), ),
+
+              CustomTextFormFild(hint: "Email",funvalidator: validateUserEmail(),),
 
               CustomEleavatedButton(
                 text: "회원가입",

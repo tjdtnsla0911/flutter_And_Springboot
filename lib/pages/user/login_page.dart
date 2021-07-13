@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog/components/custom_elevated_button.dart';
 import 'package:flutter_blog/components/custom_text_form_field.dart';
 import 'package:flutter_blog/pages/post/home_page.dart';
+import 'package:flutter_blog/util/Cvallidator_util.dart';
 import 'package:get/get.dart';
 
 class Loginpage extends StatelessWidget {
@@ -49,10 +50,23 @@ class Loginpage extends StatelessWidget {
       child: Column(
         children: [
 
-          CustomTextFormFild(hint: "Username",funvalidator: (value){},),//얘는 위에 치게해주는놈
-          CustomTextFormFild(hint: "Password",funvalidator: (value){}),
+          CustomTextFormFild(hint: "Username",funvalidator: validateusername()),//얘는 위에 치게해주는놈
+          CustomTextFormFild(hint: "Password",funvalidator: validatePassword()),
           CustomEleavatedButton(text: "로그인",
-            funpageroute: () => Get.to(HomePage()),),
+              funpageroute: () {
+                print('pageRoute에옴');
+                print('_formKey = $_formKey');
+                print('_formKey.currentState = ${_formKey.currentState}');
+                //요놈을해줘야  value값을받을수있음
+                print('_formKey.currentState.validate() 1= ${!_formKey.currentState.validate()}');
+                print('_formKey.currentState.validate() 2= ${_formKey.currentState.validate()}');
+                if(_formKey.currentState.validate()){ //요놈으로 트루인지 펄스인지판단
+                  Get.to(HomePage());
+                }
+
+
+              }
+          ),
 
         ],
 
