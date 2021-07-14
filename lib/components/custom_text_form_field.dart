@@ -18,7 +18,7 @@ class CustomTextFormFild extends StatelessWidget {
 
           decoration: InputDecoration(//첨에보일때
             hintText: "Enter $hint", //이렇게 넣는게 좋죠.. Null 안정성
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: OutlineInputBorder( //요놈이 맨처음 바로보였을때 깍아주는놈
               borderRadius: BorderRadius.circular(20),
             ),
 

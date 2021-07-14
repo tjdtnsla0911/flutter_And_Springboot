@@ -63,3 +63,44 @@ Function validateUserEmail(){
 
   };
 }
+
+
+Function validateTitle(){
+
+  return (String value){ //타입 안적으니 타입을모른다
+    print('Password of value : $value');
+    print('isAlpha = :${!isAlpha(value)}');
+    print('value.length = ${value.length}');
+    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+      print('왓다');
+      return "타이틀에는 공백이 들어갈수 없습니다.";
+
+    }else if(value.length > 30){ //is
+      return "제목의 길이 30자를 초과할수없습니다";
+
+    }else{
+      return null;
+    }
+
+  };
+}
+
+Function validateContent(){
+
+  return (String value){ //타입 안적으니 타입을모른다
+    print('Password of value : $value');
+    print('isAlpha = :${!isAlpha(value)}');
+
+    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+      print('왓다');
+      return "내용은 공백이 들어갈 수 없습니다.";
+
+    }else if(value.length > 500){ //is
+      return "내용은 길이는 최대 500자 까지입니다.";
+
+    }else{
+      return null;
+    }
+
+  };
+}
