@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true, //디버그 표시지우는듯 (앱에서)
       //라우트 설계필요없음 . getX 사용할 예정
       // home: HomePage(),
-      home: WirtePage(),
+      home: HomePage(),
     );
 
   }

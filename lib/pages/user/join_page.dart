@@ -65,10 +65,16 @@ class JoinPage extends StatelessWidget {
                  if(_formKey.currentState.validate()){ //요놈으로 트루인지 펄스인지판단
                    Get.to(Loginpage());
                  }
-
-          
+                 
                 }
-    ),
+            ),
+
+              TextButton(
+                  onPressed: (){
+                    Get.to(Loginpage());
+                  },
+                  child: Text('로그인 페이지로 이동')
+              ),
 
             ],
           ),

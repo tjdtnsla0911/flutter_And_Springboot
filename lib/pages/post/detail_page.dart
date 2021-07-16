@@ -50,7 +50,7 @@ class DetailPage extends StatelessWidget {
               SizedBox(width: 10,), // 요놈으로 Button 간격뛰움
               ElevatedButton(
                 onPressed: (){
-                  Get.to(UpdatePage());
+                  Get.off(UpdatePage()); //off처리해서 DetailPage가 안남아있으니까
                 },
                 child: Text('수정!'),
 

@@ -81,7 +81,6 @@ Function validateTitle(){
     }else{
       return null;
     }
-
   };
 }
 

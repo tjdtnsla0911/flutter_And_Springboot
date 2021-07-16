@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog/components/custom_elevated_button.dart';
 import 'package:flutter_blog/components/custom_text_form_field.dart';
 import 'package:flutter_blog/pages/post/home_page.dart';
+import 'package:flutter_blog/pages/user/join_page.dart';
 import 'package:flutter_blog/util/Cvallidator_util.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +35,11 @@ class Loginpage extends StatelessWidget {
             ),
             _loginForm(),
 
+
+
           ],
+
+
 
         ),
       ), /////////
@@ -67,6 +72,14 @@ class Loginpage extends StatelessWidget {
 
               }
           ),
+
+          TextButton(
+              onPressed: (){
+                Get.to(JoinPage());
+              },
+              child: Text('아직 회원가입을 하시지 않으셨나요?')
+          ),
+
 
         ],
 
