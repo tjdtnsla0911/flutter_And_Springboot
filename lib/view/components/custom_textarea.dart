@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomTextArea extends StatelessWidget {
 
-  final String hint;
+  final String? hint;
   final funvalidator; //함수임
-  final String value;
+  final String? value;
 
   const CustomTextArea({@required this.hint, @required this.funvalidator,@required this.value});
 

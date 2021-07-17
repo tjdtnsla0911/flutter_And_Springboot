@@ -3,12 +3,12 @@ import 'package:validators/validators.dart';
 
 Function validatePassword(){
 
-     return (String value){ //타입 안적으니 타입을모른다
+     return (String? value){ //타입 안적으니 타입을모른다
 
     print('Password of value : $value');
-    print('isAlpha = :${!isAlpha(value)}');
 
-    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+
+    if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "패스워드에는 공백이 들어갈수는 없습니다";
     }else if(!isAlpha(value)){
@@ -24,12 +24,13 @@ Function validatePassword(){
 
 
 Function validateusername(){
+  print('valud에옴222');
 
-  return (String value){ //타입 안적으니 타입을모른다
+  return (String? value){ //타입 안적으니 타입을모른다
     print('Password of value : $value');
-    print('isAlpha = :${!isAlpha(value)}');
 
-    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+
+    if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "유저이름 한글이 들어갈 수 없습니다";
     }else if(value.length > 12){
@@ -46,11 +47,11 @@ Function validateusername(){
 
 Function validateUserEmail(){
 
-  return (String value){ //타입 안적으니 타입을모른다
+  return (String? value){ //타입 안적으니 타입을모른다
     print('Password of value : $value');
-    print('isAlpha = :${!isAlpha(value)}');
 
-    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+
+    if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "이메일에는 한글이 들어갈 수 없습니다";
 
@@ -67,11 +68,10 @@ Function validateUserEmail(){
 
 Function validateTitle(){
 
-  return (String value){ //타입 안적으니 타입을모른다
+  return (String? value){ //타입 안적으니 타입을모른다
     print('Password of value : $value');
-    print('isAlpha = :${!isAlpha(value)}');
-    print('value.length = ${value.length}');
-    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+
+    if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "타이틀에는 공백이 들어갈수 없습니다.";
 
@@ -86,11 +86,11 @@ Function validateTitle(){
 
 Function validateContent(){
 
-  return (String value){ //타입 안적으니 타입을모른다
+  return (String? value){ //타입 안적으니 타입을모른다
     print('Password of value : $value');
-    print('isAlpha = :${!isAlpha(value)}');
 
-    if(value.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
+
+    if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "내용은 공백이 들어갈 수 없습니다.";
 

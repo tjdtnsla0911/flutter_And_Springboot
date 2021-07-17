@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blog/components/custom_elevated_button.dart';
-import 'package:flutter_blog/components/custom_text_form_field.dart';
-import 'package:flutter_blog/pages/user/login_page.dart';
+
 import 'package:flutter_blog/util/Cvallidator_util.dart';
+import 'package:flutter_blog/view/components/custom_elevated_button.dart';
+import 'package:flutter_blog/view/components/custom_text_form_field.dart';
+import 'package:flutter_blog/view/pages/user/login_page.dart';
 import 'package:get/get.dart';
 import 'package:validators/validators.dart';
 
@@ -60,9 +61,9 @@ class JoinPage extends StatelessWidget {
                   print('_formKey = $_formKey');
                   print('_formKey.currentState = ${_formKey.currentState}');
                   //요놈을해줘야  value값을받을수있음
-                  print('_formKey.currentState.validate() 1= ${!_formKey.currentState.validate()}');
-                  print('_formKey.currentState.validate() 2= ${_formKey.currentState.validate()}');
-                 if(_formKey.currentState.validate()){ //요놈으로 트루인지 펄스인지판단
+                  print('_formKey.currentState.validate() 1= ${!_formKey.currentState!.validate()}');
+                  print('_formKey.currentState.validate() 2= ${_formKey.currentState!.validate()}');
+                 if(_formKey.currentState!.validate()){ //요놈으로 트루인지 펄스인지판단
                    Get.to(Loginpage());
                  }
                  

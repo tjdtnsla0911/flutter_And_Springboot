@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blog/pages/user/login_page.dart';
+
 import 'package:get/get.dart';
 class CustomEleavatedButton extends StatelessWidget {
-  final String text;
+  final String? text;
   final funpageroute;
 
   //@required 를쓰므로 무조껀받는다
