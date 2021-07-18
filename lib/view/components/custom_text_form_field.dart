@@ -5,20 +5,23 @@ class CustomTextFormFild extends StatelessWidget {
   final String hint;
   final funvalidator; //함수임
   final String? value;
+  final controller;
 
-  const CustomTextFormFild({ required this.hint,  required this.funvalidator,this.value});
+  const CustomTextFormFild({ required this.hint,  required this.funvalidator,this.value, this.controller});
 
   @override
   Widget build(BuildContext context) {
     print('빌드에옴');
     print('value = $value');
 
+    // TextEditingController? t = controller; //?가있으면 널이되도 된다.
+
     return
       Padding(padding: EdgeInsets.symmetric(vertical: 5), //아래위로 나눌땐 symmetric이나음
       child:
         TextFormField(
-
-          initialValue: value ?? "",
+          controller: controller , //둘다 null이여야함
+          initialValue: value ?? null, //둘다 null이여야함
 
           validator: funvalidator,
 

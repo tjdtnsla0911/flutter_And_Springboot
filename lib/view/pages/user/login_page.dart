@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blog/contorller/user_controller.dart';
 import 'package:flutter_blog/domain/user/user_repository.dart';
 import 'package:flutter_blog/size.dart';
 
@@ -16,7 +18,10 @@ class Loginpage extends StatelessWidget {
   // const DetailPage({Key key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>(); //form상태관리하는글로벌키
+  UserController u = Get.put(UserController()); //상태관리해주는데 이렇게만들어야함;
 
+  final _username = TextEditingController(); //Type을 잘안적는 타입추론이되서
+  final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
 
@@ -60,14 +65,9 @@ class Loginpage extends StatelessWidget {
                 child:Text('로그인화면 ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 33),)
 
             ),
+
             _loginForm(),
-
-
-
           ],
-
-
-
         ),
       ), /////////
 
@@ -82,10 +82,10 @@ class Loginpage extends StatelessWidget {
       child: Column(
         children: [
 
-          CustomTextFormFild(hint: "Username",funvalidator: validateusername()),//얘는 위에 치게해주는놈
-          CustomTextFormFild(hint: "Password",funvalidator: validatePassword()),
+          CustomTextFormFild(controller: _username, hint: "Username",funvalidator: validateusername()),//얘는 위에 치게해주는놈
+          CustomTextFormFild(controller: _password, hint: "Password",funvalidator: validatePassword()),
           CustomEleavatedButton(text: "로그인",
-              funpageroute: () {
+              funpageroute: () async {
                 print('pageRoute에옴');
                 print('_formKey = $_formKey');
                 print('_formKey.currentState = ${_formKey.currentState}');
@@ -94,12 +94,18 @@ class Loginpage extends StatelessWidget {
                 print('_formKey.currentState.validate() 2= ${_formKey.currentState!.validate()}');
                 if(_formKey.currentState!.validate()){ 
                   print('if문에옴');//요놈으로 트루인지 펄스인지판단
-                  UserRepository u = UserRepository();
-                  u.login("ssar","1234");
+                  //여기서도 async , await를 안하면에러터진다
+                  String token = await u.login(_username.text.trim(), _password.text.trim()); //trim은 글자양옆으로 공백제거해줌
+
+                  if(token !=  "-1"){ //token이 null이아니라면( "-1")
+                    print('Token 정상적으로받음');
+                    Get.to(()=>HomePage()); //메모리에서 제거하고싶으면 이렇게해라함
+                  }else{//Login실패
+                    print('Token실패');
+                    Get.snackbar("로그인 시도", "로그인 실패");
+                  }
                   // Get.to(HomePage());
                 }
-
-
               }
           ),
 

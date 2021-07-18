@@ -11,10 +11,7 @@ Function validatePassword(){
     if(value!.isEmpty){ //영어인지아닌지 감 지, 바꿔말하면 한글감지
       print('왓다');
       return "패스워드에는 공백이 들어갈수는 없습니다";
-    }else if(!isAlpha(value)){
-      print('value.isEmpty에옴');
-      return '패스워드에는 한글이들어갈수없습니다';
-    }else if(value.length > 12){
+     }else if(value.length > 12){
       return "Password 길이는 12자이내입니다(보안성 ㅍㅌㅊ?)";
     }else{
       return null;

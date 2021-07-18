@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blog/contorller/user_controller.dart';
 
 import 'package:flutter_blog/size.dart';
 import 'package:flutter_blog/view/pages/post/detail_page.dart';
@@ -13,10 +14,13 @@ class HomePage extends StatelessWidget {
   // const DetailPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    //얘는 새로만드는게아니라 싱글톤임 객체가 딱하나만 만들어져있음
+    // UserController u = Get.put(UserController()); //Put은 없으면 만들고 , 있으면 찾는다
+      UserController u = Get.find(); //잘찾아줌
     return Scaffold(
       drawer: _navigation(context),
       appBar: AppBar(
-          title: Text('김스프링님'),
+          title: Text('${u.isLogin}'),
           centerTitle: true,
       ), //앱바는 히스토리를 들고있어서 자동으로 뒤로가기가있다
 
