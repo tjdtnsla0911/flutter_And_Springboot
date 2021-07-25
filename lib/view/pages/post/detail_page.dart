@@ -17,14 +17,15 @@ class DetailPage extends StatelessWidget {
   // const DetailPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
+    print('deatil_Page of id = $id');
     // String data = Get.arguments; //return Type 다이나믹타입임임
 
     return Scaffold(
-      appBar: AppBar(
 
+      appBar: AppBar(
         title: Text('뀨우우우우우'),
       ),
+
       body : Padding(
         padding: EdgeInsets.all(8.0),  //전체적인여백
 

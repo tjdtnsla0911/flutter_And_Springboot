@@ -28,7 +28,7 @@ class Loginpage extends StatelessWidget {
     return Scaffold(
       drawer: _navigation(context),
       appBar: AppBar(
-        title: Text('로그인 페이지', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+        title: Text('로그인 페이지' , style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
         centerTitle: true,
 
 
@@ -62,7 +62,7 @@ class Loginpage extends StatelessWidget {
 
                 alignment: Alignment.center,
                 height: 200,
-                child:Text('로그인화면 ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 33),)
+                child:Text('로그인화면 \n 로그인상태 : ${u.isLogin}',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 33),)
 
             ),
 
@@ -96,7 +96,7 @@ class Loginpage extends StatelessWidget {
                   print('if문에옴');//요놈으로 트루인지 펄스인지판단
                   //여기서도 async , await를 안하면에러터진다
                   String token = await u.login(_username.text.trim(), _password.text.trim()); //trim은 글자양옆으로 공백제거해줌
-
+                  print('token 끝나자마자 받은 token = $token');
                   if(token !=  "-1"){ //token이 null이아니라면( "-1")
                     print('Token 정상적으로받음');
                     Get.to(()=>HomePage()); //메모리에서 제거하고싶으면 이렇게해라함

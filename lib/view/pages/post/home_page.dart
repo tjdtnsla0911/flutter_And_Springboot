@@ -17,11 +17,18 @@ class HomePage extends StatelessWidget {
     //얘는 새로만드는게아니라 싱글톤임 객체가 딱하나만 만들어져있음
     // UserController u = Get.put(UserController()); //Put은 없으면 만들고 , 있으면 찾는다
       UserController u = Get.find(); //잘찾아줌
-    return Scaffold(
-      drawer: _navigation(context),
-      appBar: AppBar(
-          title: Text('${u.isLogin}'),
-          centerTitle: true,
+
+      print('home_Page에서 찾은  u = $u.');
+    return Scaffold( //왼쪽에 아이콘모양
+
+    drawer: _navigation(context),
+      appBar: AppBar( 
+          title: Obx(() => Text('${u.isLogin}')), //Obx는 관찰고있지만 여기에 그냥 Text만 박으면 빨간색된다.
+          // title: Text('${u.isLogin}'), //result = Logind false or true?
+          centerTitle: true, //중앙정렬
+          actions: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          ],
       ), //앱바는 히스토리를 들고있어서 자동으로 뒤로가기가있다
 
       body: Center(
@@ -33,10 +40,9 @@ class HomePage extends StatelessWidget {
           return ListTile(
 
             onTap: (){
+              print('home_page onTop Start');
               Get.to(DetailPage(index), arguments: 'argument 속성 테스트');
-
               print('homePage에 ListTitle Click');
-
             },
 
             title: Text('제목1'),
@@ -54,6 +60,9 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _navigation(BuildContext context) { //return 타입은 위젯으로잡는게 좋다함
+
+    UserController u = Get.find(); //잘찾아줌
+
     return Container(
       width: getDrawerWidth(context) , //얘가길이재는데 그걸 나누는방식
       height: double.infinity, //요놈은몰겟다
@@ -90,6 +99,9 @@ class HomePage extends StatelessWidget {
           TextButton(
 
               onPressed: (){
+                print('로그아웃 Button 클릭');
+                print('u.isLogin.value = ${u.isLogin.value}');
+                u.logout();
                 Get.to(Loginpage());
               },
 

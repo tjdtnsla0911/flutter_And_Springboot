@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class UserController extends GetxController{
     //final은 타입추론이라 사실 UserReposiory나 RxBool안적아도된다.
     final UserRepository _userRepository = UserRepository();
+    //여기서 home에서 결과를 obs에서 받는다ㅏ.
     final RxBool isLogin = false.obs; //Rx타입이란 관찰 가능한변수, UI가 관찰하고잇다.
     
 
@@ -23,6 +24,12 @@ class UserController extends GetxController{
       }
 
       return token;
+    }
+
+    void  logout(){
+      print('user_controller 의 logout에옴');
+      isLogin.value = false;
+      jwtToken = null;
     }
 
 }
