@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blog/contorller/post_controller.dart';
 import 'package:flutter_blog/contorller/user_controller.dart';
 
 import 'package:flutter_blog/size.dart';
@@ -17,6 +18,11 @@ class HomePage extends StatelessWidget {
     //얘는 새로만드는게아니라 싱글톤임 객체가 딱하나만 만들어져있음
     // UserController u = Get.put(UserController()); //Put은 없으면 만들고 , 있으면 찾는다
       UserController u = Get.find(); //잘찾아줌
+      print('PostController 직전');
+      PostController p = Get.put(PostController());
+
+      print('p = $p');
+      p.findAll();
 
       print('home_Page에서 찾은  u = $u.');
     return Scaffold( //왼쪽에 아이콘모양
